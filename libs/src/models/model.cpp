@@ -11,5 +11,5 @@
     }
     void Model::showOutput()
     {
-        std::cout << " The output of the model is " << this->state << std::endl;
+        std::cout << "The output of the model is " << this->state << std::endl;
     }

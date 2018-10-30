@@ -6,8 +6,8 @@ class Model
     private:
     int state;
     int output;
-    Model();
     public:
+    Model();
     void update(int input);
     void showOutput();
 };
