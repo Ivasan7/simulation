@@ -1,4 +1,5 @@
 #include "model.h"
+#include <iostream>
 
     Model::Model()
     :state(0)
@@ -12,4 +13,3 @@
     {
         std::cout << " The output of the model is " << this->state << std::endl;
     }
-};
