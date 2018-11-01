@@ -5,10 +5,12 @@ class Model
 {
     private:
     int state;
+    int input;
     int output;
     public:
     Model();
-    void update(int input);
+    void getInput(int input);
+    void update();
     void showOutput();
 };
 

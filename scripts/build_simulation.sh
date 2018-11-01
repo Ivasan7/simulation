@@ -95,7 +95,7 @@ echo  "Make install log: $make_install_log"
 
 cd $build_dir
 
-time_start=$(date +"%N")
+time_start=$(date +"%s")
 cmake \
         -DCMAKE_BUILD_TYPE=${build_mode} \
         -G"$generator" \
@@ -106,8 +106,8 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-time_cmake_stop=$(date +"%N")
-time_cmake=$(((time_cmake_stop-time_start)/1000000))
+time_cmake_stop=$(date +"%s")
+time_cmake=$(((time_cmake_stop-time_start)))
 
 echo "Cmake complete in $time_cmake mseconds, starting make"
 
@@ -115,21 +115,23 @@ make -j 3 &> $make_log
 
 if [ $? -ne 0 ]; then
     echo "Make error: see $make_log for more info"
+    exit 1
 fi
 
-time_make_stop=$(date +"%N")
-time_make=$(((time_make_stop-time_cmake_stop)/1000000))
+time_make_stop=$(date +"%s")
+time_make=$(((time_make_stop-time_cmake_stop)))
 
-echo "Make is complete in $time_make mseconds"
+echo "Make is complete in $time_make mseconds, starting install"
 
 #make install &> $make_install_log
 
 #if [ $? -ne 0 ]; then
  #   echo "Make error: see $make_install_log for more info"
+    #exit 1
 #fi
 
-time_stop=$(date +"%N")
-time_done=$(((time_stop-time_start)/1000000))
+time_stop=$(date +"%s")
+time_done=$(((time_stop-time_start)))
 
 echo "Building is done in ${time_done} msecond"
 
