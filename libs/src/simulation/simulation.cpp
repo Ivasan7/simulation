@@ -2,6 +2,7 @@
 #include "model.h"
 
 #include <vector>
+#include <iostream>
 
 struct Simulation::Impl{
     std::vector<std::unique_ptr<Model>> Graph;
@@ -15,14 +16,14 @@ Simulation::Simulation(Simulation&& sim) noexcept = default;
 Simulation& Simulation::operator=(Simulation&& sim) noexcept = default;
 
 
-int Simulation::run(float simTime)
+int Simulation::run(float simTime, float timeStep)
 {
-    int time = 0;
+    float time = 0;
     initialize();
-    while(time != simTime)
+    while(time <= simTime)
     {
         makeStep();
-        time += 1;
+        time += timeStep;
     }
     return 0;
 }

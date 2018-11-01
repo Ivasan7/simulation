@@ -15,7 +15,7 @@ class Simulation
         int initialize();
         int makeStep();
         int terminate();
-        int run(float simTime);
+        int run(float simTime, float timeStep = 0.1);
         
     private:
         struct Impl;

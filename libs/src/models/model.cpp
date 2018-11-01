@@ -36,7 +36,6 @@
 
     int Model::update()
     {
-        //std::cout<<"Doing update :" << std::endl;
         pImpl->output[0] = pImpl->stateCoefficients[0] * pImpl->state[0] +
          pImpl->stateCoefficients[1] * pImpl->state[1] +
          pImpl->inputCoefficients[0] * pImpl->input[0];  
