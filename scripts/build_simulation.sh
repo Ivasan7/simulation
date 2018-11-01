@@ -32,11 +32,17 @@ eval set -- "$PARSED"
 
 while true; do
     case "$1" in
-        -h|--help) print_help shift exit ;;
-        -d|--debug) build_mode="Debug" shift exit ;;
-        -r|--release) build_mode="Release" shift exit ;;
-        -f|--force) cleab_build="true" shift exit ;;
-        -t|--target) Target="$2" shift 2 exit ;;
+        -h|--help)
+            print_help
+            shift
+            ;;
+        -d|--debug)
+            build_mode="Debug"
+            shift
+            ;;
+        -r|--release) build_mode="Release" ; shift ;;
+        -f|--force) cleab_build="true" ; shift ;;
+        -t|--target) Target="$2" ; shift 2 ;;
         --) 
          shift 
          break 

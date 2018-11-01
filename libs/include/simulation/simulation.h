@@ -1,7 +1,7 @@
 #ifndef SIMULATION_H
 #define SIMULATION_H
 
-#include "boost/graph/adjacency_list.hpp"
+//#include "boost/graph/adjacency_list.hpp"
 
 #include <memory>
 
@@ -15,7 +15,7 @@ class Simulation
         int initialize();
         int makeStep();
         int terminate();
-        int run(int simTime);
+        int run(float simTime);
         
     private:
         struct Impl;

@@ -1,17 +1,21 @@
 #ifndef MODEL_H
 #define MODEL_H
 
+#include <memory>
+
 class Model
 {
-    private:
-    int state;
-    int input;
-    int output;
     public:
-    Model();
-    void getInput(int input);
-    void update();
-    void showOutput();
+        Model();
+        ~Model();
+        Model(Model&& sim) noexcept;
+        Model& operator=(Model&& model) noexcept;
+        int getInput(float input);
+        int update();
+        void showOutput();
+    private:
+        struct Impl;
+        std::unique_ptr<Impl> pImpl;
 };
 
 
